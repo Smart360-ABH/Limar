@@ -1,18 +1,18 @@
-import bakeryImage from '../assets/photo_5246919464442787471_y_1754880763338.jpg';
-import appetizersImage from '../assets/Без имени-1_1754880763338.jpg';
-import middleEasternImage from '../assets/Без имени-2_1754880763339.jpg';
-import mainDishesImage from '../assets/Второе блюдо_1754880763339.jpg';
-import mainDishes2Image from '../assets/Второе блюдо1_1754880763340.jpg';
-import mainDishes3Image from '../assets/Второе блюдо2_1754880763341.jpg';
-import garnishImage from '../assets/гарниры_1754880763342.jpg';
-import soupsImage from '../assets/Первое блюдо_1754880763343.jpg';
-import soups2Image from '../assets/Первое блюдо1_1754880763343.jpg';
-import pizzaImage from '../assets/Пицца_1754880763344.jpg';
-import fishImage from '../assets/Рыба-2_1754880763344.jpg';
-import saladsImage from '../assets/Салаты_1754880763345.jpg';
-import coldAppsImage from '../assets/Холодные закуски_1754880763345.jpg';
-import breakfastImage from '../assets/Завтраки1_1754880916007.jpg';
-import pastaImage from '../assets/Пасты_1754880916008.jpg';
+import bakeryImage from '@assets/photo_5246919464442787471_y_1754880763338.jpg';
+import appetizersImage from '@assets/Без имени-1_1754880763338.jpg';
+import middleEasternImage from '@assets/Без имени-2_1754880763339.jpg';
+import mainDishesImage from '@assets/Второе блюдо_1754880763339.jpg';
+import mainDishes2Image from '@assets/Второе блюдо1_1754880763340.jpg';
+import mainDishes3Image from '@assets/Второе блюдо2_1754880763341.jpg';
+import garnishImage from '@assets/гарниры_1754880763342.jpg';
+import soupsImage from '@assets/Первое блюдо_1754880763343.jpg';
+import soups2Image from '@assets/Первое блюдо1_1754880763343.jpg';
+import pizzaImage from '@assets/Пицца_1754880763344.jpg';
+import fishImage from '@assets/Рыба-2_1754880763344.jpg';
+import saladsImage from '@assets/Салаты_1754880763345.jpg';
+import coldAppsImage from '@assets/Холодные закуски_1754880763345.jpg';
+import breakfastImage from '@assets/Завтраки1_1754880916007.jpg';
+import pastaImage from '@assets/Пасты_1754880916008.jpg';
 
 export default function Gallery() {
   const galleryItems = [
@@ -32,7 +32,7 @@ export default function Gallery() {
     },
     {
       id: 3,
-      title: "Армянская кухня",
+      title: "Ближневосточная кухня",
       description: "Традиционные блюда и закуски",
       image: middleEasternImage,
       category: "middle-eastern"
@@ -53,7 +53,7 @@ export default function Gallery() {
     },
     {
       id: 6,
-      title: "Вторые Блюдо",
+      title: "Грузинская кухня",
       description: "Хинкали отварные, хинкали жареные, аджапсандал",
       image: mainDishes3Image,
       category: "georgian"

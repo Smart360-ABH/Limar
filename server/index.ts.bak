@@ -1,10 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = (typeof __dirname === 'undefined') ? (new URL('.', import.meta.url)).pathname : __dirname;
-
 
 const app = express();
 app.use(express.json());
@@ -48,7 +44,8 @@ app.use((req, res, next) => {
     const message = err.message || "Internal Server Error";
 
     res.status(status).json({ message });
-    });
+    throw err;
+  });
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
@@ -72,16 +69,3 @@ app.use((req, res, next) => {
     log(`serving on port ${port}`);
   });
 })();
-
-// Graceful handlers
-process.on('unhandledRejection', (reason) => {
-  console.error('Unhandled Rejection:', reason);
-});
-process.on('SIGINT', () => {
-  console.log('Received SIGINT. Shutting down.');
-  process.exit(0);
-});
-process.on('SIGTERM', () => {
-  console.log('Received SIGTERM. Shutting down.');
-  process.exit(0);
-});

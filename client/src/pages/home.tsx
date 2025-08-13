@@ -1,4 +1,4 @@
-import Hero from '../components/hero';
+import Hero from "@/components/hero";
 import { Link } from "wouter";
 
 export default function Home() {

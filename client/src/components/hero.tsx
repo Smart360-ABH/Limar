@@ -1,4 +1,4 @@
-import cafeInteriorImage from '../assets/IMG_20250723_175718_089_1754878716579.jpg';
+import cafeInteriorImage from '@assets/IMG_20250723_175718_089_1754878716579.jpg';
 
 export default function Hero() {
   return (
