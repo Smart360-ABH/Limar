@@ -1740,8 +1740,36 @@ export default function Menu() {
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory);
 
+  const formatQtyUnit = (quantity?: string, unit?: string) => {
+    if (!quantity && !unit) return "";
+    const normalize = (u?: string) => {
+      if (!u) return "";
+      const U = u.toString().trim().toUpperCase();
+      const map: Record<string, string> = {
+        "ШТУКА": "шт.",
+        "ШТ": "шт.",
+        "ЛИТР": "л",
+        "Л": "л",
+        "МИЛЛИЛИТР": "мл",
+        "МИЛЛИ ЛИТР": "мл",
+        "МЛ": "мл",
+        "КИЛОГРАММ": "кг",
+        "КГ": "кг",
+        "ГРАММ": "г",
+        "Г": "г",
+        "ПОРЦИЯ": "порц.",
+        "ПОРЦ": "порц."
+      };
+      return map[U] || u.toLowerCase();
+    };
+    const q = (quantity || "").toString().trim();
+    const u = normalize(unit);
+    if (q && u) return `${q} ${u}`;
+    return q || u;
+  };
+
   const handleOrder = (item: MenuItem) => {
-    const message = `Здравствуйте! Хочу заказать: ${item.name} - ${item.price}₽`;
+    const message = `Здравствуйте! Хочу заказать: ${item.name}${formatQtyUnit(item.quantity, item.unit) ? ` (${formatQtyUnit(item.quantity, item.unit)})` : ""} - ${item.price}₽`;
     const whatsappUrl = `https://wa.me/79407760141?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -1789,8 +1817,8 @@ export default function Menu() {
                 <div className="flex justify-between items-center">
                   <div className="flex flex-col">
                     <span className="text-2xl font-bold text-cafe-chocolate">{item.price}₽</span>
-                    {(item.quantity || item.unit) && (
-                      <span className="text-sm text-gray-500">{item.quantity || item.unit}</span>
+                    {formatQtyUnit(item.quantity, item.unit) && (
+                      <span className="text-sm text-gray-500">{formatQtyUnit(item.quantity, item.unit)}</span>
                     )}
                   </div>
                   <button 
